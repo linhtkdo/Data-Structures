@@ -39,6 +39,20 @@ public class BinarySearchTree<T extends Comparable<T>> implements BSTInterface<T
     if (tree == null) return 0;
     else return 1 + recSize(tree.getLeft()) + recSizse(tree.getRight());
   }
+  
+  /* balance(): 
+  1. In-order traversal to save all nodes into an array
+  2. Calls the recursive sortedArray2BST: tree.root = sortedArray2BST(0, nodes.length-1);
+  */
+  BSTNode<T> sortedArray2BST (int lower, int upper) {
+    if (lower > upper) return null;
+    int mid = (lower + upper) / 2;
+    BSTNode<T> nn = new BSTNode<T>(nodes[mid]);
+    nn.setLeft(sortedArray2BST(lower, mid - 1));
+    nn.setRight(sortedArray2BST(mid + 1, upper));
+    return nn;
+  }
 }
+
   
     
