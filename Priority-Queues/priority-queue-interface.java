@@ -11,3 +11,4 @@ public interface PriorityQueueInterface<T extends Comparable<T>> {
   // Throws PriorityQueueUnderflowException if empty;
   // otherwise, removes element with highest priority
   // and returns it.
+}
